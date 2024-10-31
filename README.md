@@ -1,45 +1,33 @@
-# 🪄 Nuxt Starter Templates
+# Тестовая задача.
 
-Quickly get started with a minimal Nuxt starter template!
+Реализовать проект на на Nuxt3 Composition API + Tailwind + Type Script очень желательно.
 
-## Quick start
+Входные параметры.
 
-Head over to [nuxt.new](https://nuxt.new) to get started quickly.
+1) Имеется объект дерева
+   task_json.txt
 
-## Usage
+2) Объект представляет из себя типичное дерево каталога
 
-You can use `nuxi` CLI to clone latest template to an empty directory:
+3) Json должен считываться с диска, и реагировать на изменения ( при перезагрузке Nuxt )
 
-```sh-session
-$ npx nuxi init [-t,--template=<template>] [<dir>]
-```
+Задача
+1) Реализовать переключение языков. Обычный select ru,en,fr - для чего поймем исходя из дальнейшей задачи.
 
-**Example:** Clone `v3` to `my-app` directory:
+2) Отрендерить дерево в удобном, понятном для вас формате, с возможностью закрытия открытия веток.
+      Название элемента дерева берется из locale-> cg_name
 
-```sh-session
-$ npx nuxi init -t v3 nuxt-app
-```
+3) У каждой ветки дерева fine printom под названием должен стоять breadcrumbs путь
+   В это вам поможет path_to_top
 
-## Templates
+      Например категория Цветы получить следующий breadcrumbs исходя из дерева
+   Броши -> Цветы.
 
-Name | Description | Local     | Online |
------|-------------|-----------|--------|
-[v3](https://github.com/nuxt/starter/tree/v3) | [Nuxt 3](https://github.com/nuxt/nuxt) | `npx nuxi init nuxt-app` | [Stackblitz](https://stackblitz.com/github/nuxt/starter/tree/v3-stackblitz) / [CodeSandbox](https://codesandbox.io/p/github/nuxt/starter/v3-codesandbox) |
-[module](https://github.com/nuxt/starter/tree/module) | Nuxt Module with [Module Builder](https://github.com/nuxt/module-builder) | `npx nuxi init my-module -t module` | - |
-[module-devtools](https://github.com/nuxt/starter/tree/module-devtools) | Nuxt Module with [Nuxt DevTools](https://github.com/nuxt/devtools) integration | `npx nuxi init my-module -t module-devtools` | - |
-[layer](https://github.com/nuxt/starter/tree/layer) | [Nuxt Layer](https://nuxt.com/docs/guide/going-further/layers) Starter with Extends (experimental) | `npx nuxi init  -t layer` | - |
-[content](https://github.com/nuxt/starter/tree/content) | [Nuxt Content](https://content.nuxt.com) | `npx nuxi init content-app -t content` | [Stackblitz](https://stackblitz.com/github/nuxt/starter/tree/content) / [CodeSandbox](https://codesandbox.io/p/github/nuxt/starter/content) |
-[ui](https://github.com/nuxt/starter/tree/ui) | [Nuxt UI](https://ui.nuxt.com) | `npx nuxi init nuxt-ui-app -t ui` | [Stackblitz](https://stackblitz.com/github/nuxt/starter/tree/ui) / [CodeSandbox](https://codesandbox.io/p/github/nuxt/starter/ui) |
-[v2-bridge](https://github.com/nuxt/starter/tree/v2-bridge) | [Nuxt 2](https://github.com/nuxt/nuxt/tree/2.x-dev) + [Bridge](https://github.com/nuxt/bridge) | `npx nuxi init nuxt-bridge-app -t v2-bridge` | [Stackblitz](https://stackblitz.com/github/nuxt/starter/tree/v2-bridge) / [CodeSandbox](https://codesandbox.io/p/github/nuxt/starter/v2-bridge-codesandbox) |
-[v2](https://github.com/nuxt/starter/tree/v2) | [Nuxt 2](https://github.com/nuxt/nuxt/tree/2.x-dev) | `npx nuxi init nuxt2-app -t v2` | [Stackblitz](https://stackblitz.com/github/nuxt/starter/tree/v2-stackblitz) / [CodeSandbox](https://codesandbox.io/p/github/nuxt/starter/v2-codesandbox) |
+4) Каждый элемент дерева имеет свою внешнюю ссылку( может ввести на битую страницу ее уже верстать не нужно )
+   В это вам поможет  locale->link / {id}
 
-## Contribution
+5) Имя категории, Breadcrumbs категории, Ссылка категории
+      Зависят от выбранной локали из 1 пункта задания.
 
-Each template is maintained in a branch (see [all branches](https://github.com/nuxt/starter/branches)).
-For improvements, please open a Pull Request to each individual branch.
+      При смене языка, все эти 3 параметра должны меняться -> реализовать fallback локали при не найденной -> берется первая возможная.
 
-**Note:** Please avoid commiting lock-files such as `yarn.lock` and `package-lock.json` to template branches!
-
-## License
-
-[MIT](./LICENSE) - Made with 💚
